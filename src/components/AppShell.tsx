@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import { Button } from './Button';
+import { LogoMark } from './LogoMark';
 import { MainNav } from './navigation/MainNav';
 
 type AppShellProps = {
@@ -22,9 +23,7 @@ export function AppShell({ children }: AppShellProps) {
       <header className="sticky top-0 z-10 border-b border-white/10 bg-slate-950/80 backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4">
           <Link to="/dashboard" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500 text-base font-bold text-white shadow-soft">
-              RL
-            </div>
+            <LogoMark size="sm" />
             <div>
               <p className="text-sm font-semibold text-white">RotaLeve</p>
               <p className="text-xs text-slate-400">Gestão comercial mobile-first</p>
