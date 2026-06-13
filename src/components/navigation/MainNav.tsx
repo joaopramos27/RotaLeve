@@ -95,7 +95,7 @@ export function MainNav() {
       aria-label="Menu principal"
       className="fixed inset-x-0 bottom-0 z-20 border-t border-white/10 bg-slate-950/90 backdrop-blur-xl"
     >
-      <div className="mx-auto grid max-w-6xl grid-cols-5 gap-1 px-2 py-2 sm:px-4">
+      <div className="mx-auto grid max-w-6xl grid-cols-5 gap-1 px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] sm:px-4">
         {items.map((item) => (
           <NavLink
             key={item.to}

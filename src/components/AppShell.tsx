@@ -45,7 +45,9 @@ export function AppShell({ children }: AppShellProps) {
 
       <MainNav />
 
-      <main className="mx-auto w-full max-w-6xl px-4 py-6 pb-28 sm:pb-6">{children}</main>
+      <main className="mx-auto w-full max-w-6xl px-4 pt-6 pb-[calc(8rem+env(safe-area-inset-bottom))]">
+        {children}
+      </main>
     </div>
   );
 }
