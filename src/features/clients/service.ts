@@ -11,6 +11,7 @@ import type {
   ClientWithRelations,
 } from './types';
 import { listRegions } from '../regions/service';
+import { formatBrazilianPhone } from './utils';
 
 type ClientProductLinkRow = {
   cliente_id: string;
@@ -81,6 +82,7 @@ export async function listClientsPageData(userId: string): Promise<ClientPageDat
 
     return {
       ...clientRecord,
+      telefone: clientRecord.telefone ? formatBrazilianPhone(clientRecord.telefone) : null,
       regiao_nome: clientRecord.regiao_id ? regionMap.get(clientRecord.regiao_id) ?? null : null,
       produtos: productIds
         .map((productId) => productMap.get(productId))

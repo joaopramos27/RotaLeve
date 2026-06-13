@@ -80,8 +80,9 @@ export function ClientFormDrawer({
                   name="telefone"
                   value={values.telefone}
                   onChange={(event) => onChange('telefone', event.target.value)}
-                  placeholder="(00) 00000-0000"
+                  placeholder="(11) 91100-0011"
                   error={errors.telefone}
+                  inputMode="numeric"
                 />
                 <Input
                   label="Cidade"
@@ -102,22 +103,37 @@ export function ClientFormDrawer({
                 error={errors.endereco}
               />
 
-              <label className="flex flex-col gap-2 text-sm text-slate-200">
-                <span className="font-medium">Regiao</span>
-                <select
-                  value={values.regiaoId}
-                  onChange={(event) => onChange('regiaoId', event.target.value)}
-                  className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-100 outline-none transition focus:border-brand-400 focus:ring-2 focus:ring-brand-400/30"
-                >
-                  <option value="">Sem regiao</option>
-                  {regions.map((region) => (
-                    <option key={region.id} value={region.id}>
-                      {region.nome}
-                    </option>
-                  ))}
-                </select>
-                {errors.regiaoId ? <span className="text-xs text-red-300">{errors.regiaoId}</span> : null}
-              </label>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="flex flex-col gap-2 text-sm text-slate-700">
+                  <span className="font-medium">Regiao existente</span>
+                  <select
+                    value={values.regiaoId}
+                    onChange={(event) => onChange('regiaoId', event.target.value)}
+                    className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+                  >
+                    <option value="">Sem regiao</option>
+                    {regions.map((region) => (
+                      <option key={region.id} value={region.id}>
+                        {region.nome}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.regiaoId ? <span className="text-xs text-red-600">{errors.regiaoId}</span> : null}
+                </label>
+
+                <Input
+                  label="Nova regiao"
+                  name="novaRegiaoNome"
+                  value={values.novaRegiaoNome}
+                  onChange={(event) => onChange('novaRegiaoNome', event.target.value)}
+                  placeholder="Ex.: Zona Norte"
+                  error={errors.novaRegiaoNome}
+                />
+              </div>
+
+              <p className="text-xs leading-5 text-slate-500">
+                Se preencher uma nova regiao, ela sera criada automaticamente e vinculada ao cliente.
+              </p>
 
               <label className="flex flex-col gap-2 text-sm text-slate-200">
                 <span className="font-medium">Observacoes</span>

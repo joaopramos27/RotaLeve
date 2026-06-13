@@ -32,12 +32,13 @@ export type ClientFormValues = {
   cidade: string;
   endereco: string;
   regiaoId: string;
+  novaRegiaoNome: string;
   observacoes: string;
   productIds: string[];
 };
 
 export type ClientFormErrors = Partial<
-  Record<'nome' | 'telefone' | 'cidade' | 'endereco' | 'regiaoId' | 'observacoes' | 'productIds', string>
+  Record<'nome' | 'telefone' | 'cidade' | 'endereco' | 'regiaoId' | 'novaRegiaoNome' | 'observacoes' | 'productIds', string>
 >;
 
 export type ClientPageData = {

@@ -13,7 +13,8 @@ import type {
   ClientRegion,
   ClientWithRelations,
 } from '../../features/clients/types';
-import { createEmptyClientFormValues, mapClientToFormValues, validateClientForm } from '../../features/clients/utils';
+import { createEmptyClientFormValues, formatBrazilianPhone, mapClientToFormValues, validateClientForm } from '../../features/clients/utils';
+import { findOrCreateRegion } from '../../features/regions/service';
 import { ClientCard } from './ClientCard';
 import { ClientFormDrawer } from './ClientFormDrawer';
 
@@ -108,9 +109,13 @@ export function ClientsPage() {
   }
 
   function handleFieldChange(field: keyof ClientFormValues, value: string) {
+    const nextValue = field === 'telefone' ? formatBrazilianPhone(value) : value;
+
     setFormValues((current) => ({
       ...current,
-      [field]: value,
+      [field]: nextValue,
+      ...(field === 'novaRegiaoNome' && nextValue.trim().length > 0 ? { regiaoId: '' } : {}),
+      ...(field === 'regiaoId' && nextValue ? { novaRegiaoNome: '' } : {}),
     }));
   }
 
@@ -129,7 +134,15 @@ export function ClientsPage() {
     setPageError('');
     setPageSuccess('');
 
-    const validationErrors = validateClientForm(formValues);
+    const normalizedValues = {
+      ...formValues,
+      telefone: formatBrazilianPhone(formValues.telefone),
+      novaRegiaoNome: formValues.novaRegiaoNome.trim().replace(/\s+/g, ' '),
+    };
+
+    setFormValues(normalizedValues);
+
+    const validationErrors = validateClientForm(normalizedValues);
     setFormErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0 || !userId) {
@@ -144,13 +157,39 @@ export function ClientsPage() {
     setFormLoading(true);
 
     try {
+      let submitValues = normalizedValues;
+      let savedRegion: ClientRegion | null = null;
+
+      if (normalizedValues.novaRegiaoNome) {
+        savedRegion = await findOrCreateRegion(userId, normalizedValues.novaRegiaoNome);
+        submitValues = {
+          ...normalizedValues,
+          regiaoId: savedRegion.id,
+          novaRegiaoNome: '',
+        };
+
+        setRegions((current) => {
+          const alreadyExists = current.some((region) => region.id === savedRegion?.id);
+          if (alreadyExists || !savedRegion) {
+            return current;
+          }
+
+          return [...current, savedRegion].sort((left, right) =>
+            left.nome.localeCompare(right.nome, 'pt-BR', { sensitivity: 'base' }),
+          );
+        });
+      }
+
       const savedClient =
         formMode === 'create'
-          ? await createClient(userId, formValues)
-          : await updateClient(userId, activeClient!.id, formValues);
+          ? await createClient(userId, submitValues)
+          : await updateClient(userId, activeClient!.id, submitValues);
 
-      const savedProducts = products.filter((product) => formValues.productIds.includes(product.id));
-      const regionName = regions.find((region) => region.id === formValues.regiaoId)?.nome ?? null;
+      const savedProducts = products.filter((product) => submitValues.productIds.includes(product.id));
+      const regionName =
+        savedRegion?.id === savedClient.regiao_id
+          ? savedRegion.nome
+          : regions.find((region) => region.id === savedClient.regiao_id)?.nome ?? null;
 
       setClients((current) => {
         const nextClient = {
