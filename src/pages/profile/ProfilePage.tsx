@@ -9,41 +9,41 @@ export function ProfilePage() {
     <div className="space-y-6">
       <PageShell
         title="Perfil"
-        description="Configurações da conta, dados do usuário e preferências principais do aplicativo."
+        description="Configuracoes da conta, dados do usuario e preferencias principais do aplicativo."
       />
 
       <section className="grid gap-4 sm:grid-cols-3">
-        <StatsCard label="Usuário" value={user?.email ?? '-'} hint="Sessão autenticada" />
+        <StatsCard label="Usuario" value={user?.email ?? '-'} hint="Sessao autenticada" />
         <StatsCard label="Status" value="Ativo" hint="Conta pronta para uso" />
-        <StatsCard label="Segurança" value="Supabase Auth" hint="Sessão persistida" />
+        <StatsCard label="Seguranca" value="Supabase Auth" hint="Sessao persistida" />
       </section>
 
       <section className="grid gap-4 lg:grid-cols-[1.5fr_1fr]">
-        <article className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5 shadow-soft backdrop-blur">
-          <p className="text-sm font-semibold text-white">Dados da conta</p>
-          <div className="mt-4 space-y-3 text-sm text-slate-300">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-4">
-              <p className="text-xs uppercase tracking-[0.2em] text-slate-400">E-mail</p>
-              <p className="mt-1 text-white">{user?.email ?? '-'}</p>
+        <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+          <p className="text-sm font-semibold text-slate-950">Dados da conta</p>
+          <div className="mt-4 space-y-3 text-sm text-slate-600">
+            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4">
+              <p className="text-xs uppercase tracking-[0.16em] text-slate-500">E-mail</p>
+              <p className="mt-1 break-words text-slate-950 [overflow-wrap:anywhere]">{user?.email ?? '-'}</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-4">
-              <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Acesso</p>
-              <p className="mt-1 text-white">Autenticação ativa no navegador</p>
+            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4">
+              <p className="text-xs uppercase tracking-[0.16em] text-slate-500">Acesso</p>
+              <p className="mt-1 text-slate-950">Autenticacao ativa no navegador</p>
             </div>
           </div>
         </article>
 
-        <article className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5 shadow-soft backdrop-blur">
-          <p className="text-sm font-semibold text-white">Preferências</p>
-          <div className="mt-4 space-y-3 text-sm text-slate-300">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-4">
+        <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+          <p className="text-sm font-semibold text-slate-950">Preferencias</p>
+          <div className="mt-4 space-y-3 text-sm text-slate-600">
+            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4">
               Interface mobile-first
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-4">
-              Menu inferior sempre acessível
+            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4">
+              Menu inferior sempre acessivel
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-4">
-              Pronto para integrações futuras
+            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4">
+              Pronto para integracoes futuras
             </div>
           </div>
         </article>

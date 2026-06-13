@@ -13,7 +13,7 @@ body,
 }
 
 body {
-  @apply bg-slate-950 text-slate-100 antialiased;
+  @apply bg-slate-50 text-slate-900 antialiased;
   overflow-y: auto;
 }
 
@@ -23,4 +23,57 @@ a {
 
 ::selection {
   background: rgba(37, 99, 235, 0.35);
+}
+
+.theme-light [class~="bg-white/5"],
+.theme-light [class~="bg-slate-950"],
+.theme-light [class~="bg-slate-950/40"],
+.theme-light [class~="bg-slate-950/30"],
+.theme-light [class~="bg-slate-950/60"],
+.theme-light [class~="bg-slate-900/60"],
+.theme-light [class~="bg-slate-900/80"] {
+  background-color: #ffffff !important;
+}
+
+.theme-light [class~="border-white/10"],
+.theme-light [class~="border-white/20"] {
+  border-color: #e2e8f0 !important;
+}
+
+.theme-light [class~="text-white"] {
+  color: #0f172a !important;
+}
+
+.theme-light [class~="text-slate-100"],
+.theme-light [class~="text-slate-200"],
+.theme-light [class~="text-slate-300"] {
+  color: #475569 !important;
+}
+
+.theme-light [class~="text-slate-400"],
+.theme-light [class~="text-slate-500"] {
+  color: #64748b !important;
+}
+
+.theme-light [class~="text-brand-100"],
+.theme-light [class~="text-brand-200"],
+.theme-light [class~="text-brand-300"] {
+  color: #176dd0 !important;
+}
+
+.theme-light [class~="bg-brand-500"][class~="text-white"],
+.theme-light [class~="bg-brand-600"][class~="text-white"],
+.theme-light [class~="bg-red-500"][class~="text-white"] {
+  color: #ffffff !important;
+}
+
+.theme-light [class~="shadow-soft"] {
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08) !important;
+}
+
+[class~="rounded-[2rem]"],
+[class~="rounded-[1.75rem]"],
+[class~="rounded-[1.5rem]"],
+[class~="rounded-2xl"] {
+  border-radius: 1rem !important;
 }

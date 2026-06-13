@@ -150,7 +150,7 @@ export function ProductImportDrawer({
             <section className="rounded-[1.5rem] border border-brand-400/20 bg-brand-500/5 p-4">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-semibold text-white">Gemini 2.5 Flash</p>
+                  <p className="text-sm font-semibold text-white">Revisao automatica</p>
                   <p className="mt-1 text-xs text-slate-400">
                     O backend analisa, corrige nomes, padroniza descricoes e sugere categorias sem expor a API key.
                   </p>
@@ -162,7 +162,7 @@ export function ProductImportDrawer({
 
               {analysisLoading ? (
                 <div className="mt-4 rounded-2xl border border-dashed border-brand-400/30 px-4 py-8 text-center text-sm text-brand-100">
-                  Gemini esta analisando a planilha.
+                  Revisando os dados da planilha.
                 </div>
               ) : analysisRows.length === 0 ? (
                 <div className="mt-4 rounded-2xl border border-dashed border-brand-400/30 px-4 py-8 text-center text-sm text-brand-100">
@@ -223,7 +223,7 @@ export function ProductImportDrawer({
                                 </div>
 
                                 <div className="rounded-2xl border border-brand-400/20 bg-brand-500/10 p-3">
-                                  <p className="text-xs uppercase tracking-[0.2em] text-brand-100">Gemini</p>
+                                  <p className="text-xs uppercase tracking-[0.2em] text-brand-100">Revisao</p>
                                   <p className="mt-2 text-sm font-semibold text-white">
                                     {analysis?.nomeCorrigido || item.row.nome || 'Sem nome'}
                                   </p>

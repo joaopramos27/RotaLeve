@@ -10,12 +10,12 @@ export function DashboardPage() {
     <div className="space-y-6">
       <PageShell
         title="Bem-vindo ao RotaLeve"
-        description="Sua sessão está ativa. A interface já está pronta para evoluir com clientes, produtos, rotas e perfil."
+        description="Sua sessao esta ativa. A interface esta pronta para operar clientes, produtos, rotas, vendas e perfil."
       >
-        <div className="mt-5 grid gap-4 sm:grid-cols-3">
-          <StatsCard label="Usuário autenticado" value={user?.email ?? '-'} hint="Acesso seguro com Supabase" />
-          <StatsCard label="Status" value="Operando" hint="Base pronta para novos módulos" />
-          <StatsCard label="Sessão" value="Persistida" hint="Refresh e login automático" />
+        <div className="mt-5 grid min-w-0 gap-4 sm:grid-cols-3">
+          <StatsCard label="Usuario autenticado" value={user?.email ?? '-'} hint="Acesso seguro com Supabase" />
+          <StatsCard label="Status" value="Operando" hint="Base pronta para novos modulos" />
+          <StatsCard label="Sessao" value="Persistida" hint="Refresh e login automatico" />
         </div>
       </PageShell>
 
@@ -27,7 +27,7 @@ export function DashboardPage() {
         />
         <QuickAction
           title="Produtos"
-          description="Catálogo visual com imagem e preço."
+          description="Catalogo visual com imagem e preco."
           icon={<span className="text-lg font-bold">P</span>}
         />
         <QuickAction

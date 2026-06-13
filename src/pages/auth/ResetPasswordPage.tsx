@@ -75,7 +75,7 @@ export function ResetPasswordPage() {
         description="Escolha uma nova senha para retomar o acesso ao RotaLeve."
         footer={
           <span>
-            <Link to="/auth/login" className="font-semibold text-brand-300 hover:text-brand-200">
+            <Link to="/auth/login" className="font-semibold text-brand-700 hover:text-brand-600">
               Ir para o login
             </Link>
           </span>

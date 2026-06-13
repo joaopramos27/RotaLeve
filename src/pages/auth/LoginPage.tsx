@@ -50,7 +50,7 @@ export function LoginPage() {
         footer={
           <span>
             Não tem conta?{' '}
-            <Link to="/auth/register" className="font-semibold text-brand-300 hover:text-brand-200">
+            <Link to="/auth/register" className="font-semibold text-brand-700 hover:text-brand-600">
               Criar cadastro
             </Link>
           </span>
@@ -85,7 +85,7 @@ export function LoginPage() {
         </form>
 
         <div className="flex items-center justify-between text-sm">
-          <Link to="/auth/forgot-password" className="font-medium text-slate-300 hover:text-white">
+          <Link to="/auth/forgot-password" className="font-medium text-slate-600 hover:text-slate-950">
             Esqueci minha senha
           </Link>
         </div>

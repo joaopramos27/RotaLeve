@@ -46,7 +46,7 @@ export function ForgotPasswordPage() {
         footer={
           <span>
             Lembrou a senha?{' '}
-            <Link to="/auth/login" className="font-semibold text-brand-300 hover:text-brand-200">
+            <Link to="/auth/login" className="font-semibold text-brand-700 hover:text-brand-600">
               Voltar ao login
             </Link>
           </span>

@@ -19,21 +19,21 @@ export function AppShell({ children }: AppShellProps) {
   }
 
   return (
-    <div className="min-h-full bg-[radial-gradient(circle_at_top,_rgba(37,99,235,0.24),_transparent_35%),linear-gradient(180deg,#020617_0%,#0f172a_100%)]">
-      <header className="sticky top-0 z-10 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+    <div className="theme-light min-h-full bg-[linear-gradient(180deg,#f8fafc_0%,#eef6ff_42%,#f8fafc_100%)]">
+      <header className="sticky top-0 z-10 border-b border-slate-200/80 bg-white/95 shadow-sm backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4">
           <Link to="/dashboard" className="flex items-center gap-3">
             <LogoMark size="sm" />
             <div>
-              <p className="text-sm font-semibold text-white">RotaLeve</p>
-              <p className="text-xs text-slate-400">Gestão comercial mobile-first</p>
+              <p className="text-sm font-semibold text-slate-950">RotaLeve</p>
+              <p className="text-xs text-slate-500">Gestão comercial mobile-first</p>
             </div>
           </Link>
 
           <div className="flex items-center gap-3">
-            <div className="hidden text-right sm:block">
-              <p className="text-sm font-medium text-white">{user?.email}</p>
-              <p className="text-xs text-slate-400">Sessão autenticada</p>
+            <div className="hidden max-w-[230px] text-right leading-tight sm:block">
+              <p className="break-all text-sm font-medium text-slate-950">{user?.email}</p>
+              <p className="mt-0.5 text-xs text-slate-500">Sessão autenticada</p>
             </div>
             <Button variant="secondary" onClick={handleLogout}>
               Sair

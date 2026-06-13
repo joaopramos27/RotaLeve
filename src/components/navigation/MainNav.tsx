@@ -93,7 +93,7 @@ export function MainNav() {
   return (
     <nav
       aria-label="Menu principal"
-      className="fixed inset-x-0 bottom-0 z-20 border-t border-white/10 bg-slate-950/90 backdrop-blur-xl"
+      className="fixed inset-x-0 bottom-0 z-20 border-t border-slate-200 bg-white/95 shadow-[0_-10px_24px_rgba(15,23,42,0.08)] backdrop-blur-xl"
     >
       <div className="mx-auto grid max-w-6xl grid-cols-5 gap-1 px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] sm:px-4">
         {items.map((item) => (
@@ -102,10 +102,10 @@ export function MainNav() {
             to={item.to}
             className={({ isActive }) =>
               [
-                'flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-xs font-medium transition',
+                'flex flex-col items-center justify-center gap-1 rounded-xl px-2 py-2 text-xs font-medium transition',
                 isActive
-                  ? 'bg-brand-500 text-white shadow-soft'
-                  : 'text-slate-400 hover:bg-white/5 hover:text-white',
+                  ? 'bg-brand-600 text-white shadow-soft'
+                  : 'text-slate-500 hover:bg-slate-100 hover:text-slate-950',
               ].join(' ')
             }
           >
