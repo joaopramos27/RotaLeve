@@ -1,0 +1,7 @@
+project_id = "rotaleve"
+
+[functions.analyze-product-import]
+verify_jwt = true
+
+[functions.optimize-route]
+verify_jwt = true
